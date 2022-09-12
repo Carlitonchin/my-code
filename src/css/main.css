@@ -1,0 +1,57 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 100%;
+    scroll-behavior: smooth;
+}
+
+.card{
+    @apply 
+    h-full w-56 h-64 lg:w-96 lg:h-96 rounded-lg flex-none transition-all duration-300 transform hover:-translate-y-4 cursor-pointer shadow-lg
+}
+
+.inside-card{
+    @apply w-full h-full p-8 rounded-lg
+}
+
+.card-stay{
+   @apply w-full h-96 bg-cover rounded-lg bg-center lg:text-right
+}
+
+.title-card-stay{
+    @apply text-3xl font-semibold lg:text-6xl text-white
+}
+
+.info-card-stay{
+    @apply text-lg lg:text-xl text-white
+}
+
+@keyframes scroll {
+    0% {transform: translateX(0);}
+    100% {transform: translateX(-50%);}
+}
+
+
+@media (min-width: 1024px) {
+    .higher{
+        height: 170vh;
+    }
+
+    .carousel{
+        animation: scroll 10s linear infinite;
+    }
+
+    .carousel:has( .card:hover){
+        animation-play-state: paused;
+    }
+   
+}
